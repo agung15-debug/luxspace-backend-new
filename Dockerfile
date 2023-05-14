@@ -25,6 +25,9 @@ COPY ./docker/apache2/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN composer install --no-dev --no-scripts --no-autoloader && \
     composer dump-autoload --optimize
 
+#cp .env.example .env
+RUN cp .env.example .env
+
 #generate laravel key
 RUN php artisan key:generate
 
@@ -34,6 +37,16 @@ RUN php artisan storage:link
 #change ownership
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod 777 /var/www/html
+
+#change environment database
+ENV APP_NAME=Luxspace
+
+ENV DB_CONNECTION=mysql
+ENV DB_HOST=34.173.2.254
+ENV DB_PORT=3306
+ENV DB_DATABASE=luxspace-new
+ENV DB_USERNAME=luxspace-new
+ENV DB_PASSWORD=Yogi1551!
 
 #set permissions for storage and bootstrap/cache
 RUN chown -R www-data:www-data /var/www/html/storage
