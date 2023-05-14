@@ -25,6 +25,9 @@ COPY ./docker/apache2/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN composer install --no-dev --no-scripts --no-autoloader && \
     composer dump-autoload --optimize
 
+#cp .env.example .env
+RUN cp .env.example .env
+
 #generate laravel key
 RUN php artisan key:generate
 
