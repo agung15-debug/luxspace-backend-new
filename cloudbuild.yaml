@@ -26,19 +26,6 @@ steps:
         args:
             - push 
             - 'gcr.io/$PROJECT_ID/luxspace:cloudbuild-$BRANCH_NAME-latest'
-    -
-        name : 'gcr.io/cloud-builders/gcloud'
-        args :
-            - run
-            - deploy
-            - 'luxspace'
-            - '--image'
-            - 'gcr.io/$PROJECT_ID/luxspace:cloudbuild-$BRANCH_NAME-$SHORT_SHA'
-            - '--region'
-            - 'asia-southeast1'
-            - '--platform'
-            - 'managed'
-            - '--allow-unauthenticated'
             
 images:
           - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA'
