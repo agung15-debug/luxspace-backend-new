@@ -7,8 +7,6 @@ steps:
             - 'gcr.io/$PROJECT_ID/luxspace:cloudbuild-$BRANCH_NAME-$SHORT_SHA'
             - .
     -
-    
-   
         name: gcr.io/cloud-builders/docker
         args:
             - tag
