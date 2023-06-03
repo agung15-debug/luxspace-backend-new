@@ -40,6 +40,7 @@ RUN chmod 777 /var/www/html
 
 #change environment database
 ENV APP_NAME=Luxspace
+ENV APP_URL=https://luxspace-backend-v35lvqcqfa-as.a.run.app
 ENV DB_CONNECTION=mysql
 ENV DB_HOST=34.171.221.115
 ENV DB_DATABASE=luxspace-new
